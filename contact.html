@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Contact Form</title>
-    <!-- Form styling -->
-    <link rel="stylesheet" href="formcarry-form.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mpilo High School</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #10b981 100%);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img src="http://static.photos/education/200x200/1" alt="School Logo" class="h-12 w-12 rounded-full">
+                    <span class="text-xl font-bold text-gray-800">Mpilo High</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-blue-600">About</a>
+                    <a href="academics.html" class="text-gray-600 hover:text-blue-600">Academics</a>
+                    <a href="admissions.html" class="text-gray-600 hover:text-blue-600">Admissions</a>
+                    <a href="#" class="text-blue-600 font-medium">Contact</a>
+                </div>
+                <button class="md:hidden focus:outline-none">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
     <div class="formcarry-container">
       <form action="https://formspree.io/f/xjkavwbl" method="POST" class="formcarry-form">
         <label for="name">Your Name</label>
