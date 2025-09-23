@@ -1,87 +1,3 @@
-<?php
-require 'PHPMailerAutoload.php';
-$mail = new PHPMailer;
-
-//Create an instance; passing `true` enables exceptions
-$mail = new PHPMailer(true);
-
-// Check if the form was submitted
-//if (isset($_POST["submit"])) {
-     //Collect and sanitize form data
-      $name = htmlspecialchars($_POST["name"]);
-      $emailadrdress = htmlspecialchars($_POST["email"]);
-      $phone = htmlspecialchars($_POST["phone"]);
-      $topic = htmlspecialchars($_POST["topic"]); 
-      $message = htmlspecialchars($_POST["message"]); 
-
-  try {
-      //Server settings
-      $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-      //$mail->isSMTP();                                            //Send using SMTP
-      $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-      $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-      $mail->Username   = 'sephiriworkplace@gmail.com';                     //SMTP username
-      $mail->Password   = 'qwgovxrfrmsmwvas';                               //SMTP password
-      $mail->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
-      $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS` 
-  
-      //Recipients
-      $mail->setFrom($_POST["email"], $_POST["name"] );
-      $mail->addAddress('sephirimarobele@yahoo.com');     //Add a recipient
-      //$mail->addAddress('ellen@example.com');               //Name is optional
-      //$mail->addReplyTo('info@example.com', 'Information');
-      $mail->addCC('sephiri.mankge@gmail.com');
-      //$mail->addBCC('bcc@example.com');
-  
-      //Attachments
-      //$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-      //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
-  
-      // Build the email body
-      $mail->isHTML(true);  
-      $mail->Subject = 'Mpilo New Enquiry';
-      $email->Body = '<h3> Hello you have a new enquiry</h3>
-        <h4>name:'.$name.'</h4>
-        <h4>email:'.$emailaddress.'</h4>
-        <h4>phone:'.$phone.'</h4>
-        <h4>topic:'.$topic.'</h4>
-        <h4>message:'.$message.'</h4>
-        ';
-          
-        //$email= "Name: $name\n";
-        //$email= "Email: $email\n";
-        //$email= "Phone: $phone\n";
-        //$email= "Topic: $topic\n";
-        //$email= "Message: $message\n";
-    
-      if ($mail->send()){
-        echo "Sent successfully.";
-        exit;
-        } else {
-          echo :"Error has occurred";
-          exit;
-        }
-      }
-    
-    if mail($email->Subject, $email->Body )
-        //Redirect to a thank you page or show a success message
-        echo : "message successfully sent";
-        exit;
-    } else {
-        echo "An error occurred while sending your message. Please try again later.";
-        exit;
-    }
-  }
-//} else {
-    // If the form wasn't submitted, redirect back to the contact form
-    //header("Location: index.html");
-    //echo "Not sent.";
-    //exit;
-//}
-?>
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -202,3 +118,85 @@ $mail = new PHPMailer(true);
             </div>
         </div>
     </section>
+
+<?php
+require 'PHPMailerAutoload.php';
+$mail = new PHPMailer;
+
+//Create an instance; passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+// Check if the form was submitted
+//if (isset($_POST["submit"])) {
+     //Collect and sanitize form data
+      $name = htmlspecialchars($_POST["name"]);
+      $emailadrdress = htmlspecialchars($_POST["email"]);
+      $phone = htmlspecialchars($_POST["phone"]);
+      $topic = htmlspecialchars($_POST["topic"]); 
+      $message = htmlspecialchars($_POST["message"]); 
+
+  try {
+      //Server settings
+      $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+      //$mail->isSMTP();                                            //Send using SMTP
+      $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+      $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+      $mail->Username   = 'sephiriworkplace@gmail.com';                     //SMTP username
+      $mail->Password   = 'qwgovxrfrmsmwvas';                               //SMTP password
+      $mail->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
+      $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS` 
+  
+      //Recipients
+      $mail->setFrom($_POST["email"], $_POST["name"] );
+      $mail->addAddress('sephirimarobele@yahoo.com');     //Add a recipient
+      //$mail->addAddress('ellen@example.com');               //Name is optional
+      //$mail->addReplyTo('info@example.com', 'Information');
+      $mail->addCC('sephiri.mankge@gmail.com');
+      //$mail->addBCC('bcc@example.com');
+  
+      //Attachments
+      //$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+      //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+  
+      // Build the email body
+      $mail->isHTML(true);  
+      $mail->Subject = 'Mpilo New Enquiry';
+      $email->Body = '<h3> Hello you have a new enquiry</h3>
+        <h4>name:'.$name.'</h4>
+        <h4>email:'.$emailaddress.'</h4>
+        <h4>phone:'.$phone.'</h4>
+        <h4>topic:'.$topic.'</h4>
+        <h4>message:'.$message.'</h4>
+        ';
+          
+        //$email= "Name: $name\n";
+        //$email= "Email: $email\n";
+        //$email= "Phone: $phone\n";
+        //$email= "Topic: $topic\n";
+        //$email= "Message: $message\n";
+    
+      if ($mail->send()){
+        echo "Sent successfully.";
+        exit;
+        } else {
+          echo :"Error has occurred";
+          exit;
+        }
+      }
+    
+    if mail($email->Subject, $email->Body )
+        //Redirect to a thank you page or show a success message
+        echo : "message successfully sent";
+        exit;
+    } else {
+        echo "An error occurred while sending your message. Please try again later.";
+        exit;
+    }
+  }
+//} else {
+    // If the form wasn't submitted, redirect back to the contact form
+    //header("Location: index.html");
+    //echo "Not sent.";
+    //exit;
+//}
+?>
